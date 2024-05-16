@@ -11,13 +11,27 @@ public:
 	PrimeFactor() :balance() {
 
 	}
-	vector<int> getFactors(int value)
+	vector<int> getFactors(int val)
 	{
 		vector<int> ret;
-		if (value == 2)
+		if (val > 1)
 		{
-			ret.push_back(2);
+			while (val % 2 == 0)
+			{
+				ret.push_back(2);
+				val /= 2;
+			}
+			while (val % 3 == 0)
+			{
+				ret.push_back(3);
+				val /= 3;
+			}
 		}
+		else
+		{
+			return { 1 };
+		}
+
 		return ret;
 	}
 };
